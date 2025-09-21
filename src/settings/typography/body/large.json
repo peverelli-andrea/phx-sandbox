@@ -5,8 +5,8 @@
 			"format": "truetype"
 		}
 	],
-	"name": "RobotoRegular",
-	"family": "roboto-regular",
+	"name": "BodyLarge",
+	"family": "body-large",
 	"style": "normal",
 	"size": "16px",
 	"weight": "400",

@@ -9,8 +9,8 @@
 			"format": "WOFF"
 		}
 	],
-	"name": "RobotoMediumItalic",
-	"family": "roboto-medium-italic",
+	"name": "LabelLargeItalic",
+	"family": "label-large-italic",
 	"style": "italic",
 	"size": "14px",
 	"weight": "500",

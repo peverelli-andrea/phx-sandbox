@@ -5,8 +5,8 @@
 			"format": "truetype"
 		}
 	],
-	"name": "RobotoMedium",
-	"family": "roboto-medium",
+	"name": "LabelLarge",
+	"family": "label-large",
 	"style": "normal",
 	"size": "14px",
 	"weight": "500",

@@ -5,8 +5,8 @@
 			"format": "truetype"
 		}
 	],
-	"name": "RobotoRegularItalic",
-	"family": "roboto-regular-italic",
+	"name": "BodyLargeItalic",
+	"family": "body-large-italic",
 	"style": "italic",
 	"size": "16px",
 	"weight": "400",

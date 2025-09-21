@@ -1,24 +1,24 @@
 {
 	"sources": [
 		{
-			"source": "Roboto.ttf",
-			"format": "TrueType"
+			"source": "roboto/Roboto-MediumItalic.ttf",
+			"format": "truetype"
 		}
 	],
-	"name": "Roboto",
-	"family": "roboto",
+	"name": "BodyLargeEmphasizedItalic",
+	"family": "body-large-emphasized-italic",
 	"style": "normal",
-	"size": "16",
+	"size": "16px",
 	"weight": "500",
-	"letter_spacing": "2",
-	"line_height": "21",
+	"letter_spacing": "0.03125px",
+	"line_height": "24px",
 	"vf_weight": "500",
 	"grade": "1",
-	"width": "1",
+	"width": "100%",
 	"rounding": "0",
 	"optical_size": "16",
 	"cursive": "0",
-	"slant": "0",
+	"slant": "0deg",
 	"fill": "0",
 	"hyper_expansion": "0"
 }
