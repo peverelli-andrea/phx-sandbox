@@ -1,14 +1,17 @@
 <?php
 
-namespace Phx\Sandbox;
+namespace Phx\Sandbox\public;
 
-require_once("../vendor/autoload.php");
+require_once("../../vendor/autoload.php");
 
 use Phx\Core\Bundler;
+use Phx\Core\TypographySubRole;
 use Phx\Atom\Paragraph\Paragraph;
 use Phx\Atom\Paragraph\ParagraphProps;
 use Phx\Atom\Label\Label;
 use Phx\Atom\Label\LabelProps;
+use Phx\Core\Component;
+
 
 $paragraph_render = Paragraph::render(
 	props: new ParagraphProps(content: "Paragraph")
@@ -30,7 +33,9 @@ echo <<<HTML
 <!DOCTYPE html>
 <html>
 	<head>
-		{$css_bundle}
+		<style>
+			{$css_bundle}
+		</style>
 	</head>
 	<body>
 		{$scripts_before_bundle}
