@@ -1,0 +1,10 @@
+{
+	"surface": "#FEF7FF",
+	"on_surface": "#000000",
+	"primary": "#4F378B",
+	"on_primary": "#FFFFFF",
+	"secondary": "#4A4458",
+	"on_secondary": "#FFFFFF",
+	"tertiary": "#633B48",
+	"on_tertiary": "#FFFFFF"
+}
