@@ -5,16 +5,15 @@ namespace Phx\Sandbox\public;
 require_once("../../vendor/autoload.php");
 
 use Phx\Core\Bundler;
-use Phx\Core\TypographySubRole;
 use Phx\Atom\Paragraph\Paragraph;
 use Phx\Atom\Paragraph\ParagraphProps;
 use Phx\Atom\Label\Label;
 use Phx\Atom\Label\LabelProps;
-use Phx\Core\Component;
+use Phx\Core\Palette;
 
 
 $paragraph_render = Paragraph::render(
-	props: new ParagraphProps(content: "Paragraph")
+	props: new ParagraphProps(content: "Paragraph"),
 );
 $paragraph_html = Bundler::getHtml($paragraph_render);
 
