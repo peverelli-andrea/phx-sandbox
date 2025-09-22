@@ -1,0 +1,14 @@
+{
+	"arrow_back": {
+		"sources": [
+			{
+				"source": "arrow_back.woff2",
+				"format": "woff2"
+			}
+		],
+		"name": "ArrowBackSharp",
+		"family": "arrow-back-sharp",
+		"fill": "0",
+		"grade": "0"
+	}
+}

@@ -14,6 +14,9 @@ use Phx\Atom\Heading\HeadingProps;
 use Phx\Atom\Heading\HeadingLevel;
 use Phx\Atom\Heading\HeadingTypographyRole;
 use Phx\Core\TypographySubRole;
+use Phx\Atom\Icon\Icon;
+use Phx\Atom\Icon\IconProps;
+use Phx\Atom\Icon\IconVariant;
 
 $heading_display_large_render = Heading::render(
 	props: new HeadingProps(content: "Heading H1 Display Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>"),
@@ -135,6 +138,13 @@ $label_small_render = Label::render(
 );
 $label_small_html = Bundler::getHtml(render: $label_small_render);
 
+$icon_arrow_back_render = Icon::render(
+	props: new IconProps(
+		variant: IconVariant::ARROW_BACK,
+	),
+);
+$icon_arrow_back_html = Bundler::getHtml(render: $icon_arrow_back_render);
+
 $bundle = Bundler::make(
 	component_renders: [
 		$heading_display_large_render,
@@ -152,6 +162,7 @@ $bundle = Bundler::make(
 		$label_large_render,
 		$label_medium_render,
 		$label_small_render,
+		$icon_arrow_back_render,
 	]
 );
 
@@ -193,6 +204,8 @@ echo <<<HTML
 		{$label_medium_html}
 		<br />
 		{$label_small_html}
+		<br />
+		{$icon_arrow_back_html}
 		{$scripts_after_bundle}
 	</body>
 </html>
