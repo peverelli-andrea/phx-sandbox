@@ -7,7 +7,8 @@
 		"psr-4": {
 			"Phx\\Sandbox\\": "src/",
 			"Phx\\Core\\": "../core/src/",
-			"Phx\\Atom\\": "../components/atoms/src/"
+			"Phx\\Atom\\": "../components/atoms/src/",
+			"Phx\\Molecule\\": "../components/molecules/src/"
 		}
 	},
 	"authors": [
@@ -16,8 +17,5 @@
 			"email": "ndrpeverelli@gmail.com"
 		}
 	],
-	"minimum-stability": "dev",
-	"require": {
-		"phx/molecule": "dev-main"
-	}
+	"minimum-stability": "dev"
 }
