@@ -16,5 +16,8 @@
 			"email": "ndrpeverelli@gmail.com"
 		}
 	],
-	"minimum-stability": "dev"
+	"minimum-stability": "dev",
+	"require": {
+		"phx/molecule": "dev-main"
+	}
 }
