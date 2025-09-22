@@ -1,0 +1,24 @@
+{
+	"sources": [
+		{
+			"source": "roboto/Roboto-RegularItalic.ttf",
+			"format": "truetype"
+		}
+	],
+	"name": "DisplayLargeItalic",
+	"family": "display-large-italic",
+	"style": "italic",
+	"size": "57px",
+	"weight": "400",
+	"letter_spacing": "-0.00438596491px",
+	"line_height": "64px",
+	"vf_weight": "400",
+	"grade": "1",
+	"width": "100%",
+	"rounding": "0",
+	"optical_size": "57",
+	"cursive": "0",
+	"slant": "0deg",
+	"fill": "0",
+	"hyper_expansion": "0"
+}

@@ -1,0 +1,24 @@
+{
+	"sources": [
+		{
+			"source": "roboto/Roboto-MediumItalic.ttf",
+			"format": "truetype"
+		}
+	],
+	"name": "TitleLargeEmphasizedItalic",
+	"family": "title-large-emphasized-italic",
+	"style": "italic",
+	"size": "22px",
+	"weight": "500",
+	"letter_spacing": "0px",
+	"line_height": "28px",
+	"vf_weight": "500",
+	"grade": "1",
+	"width": "100%",
+	"rounding": "0",
+	"optical_size": "22",
+	"cursive": "0",
+	"slant": "0deg",
+	"fill": "0",
+	"hyper_expansion": "0"
+}
