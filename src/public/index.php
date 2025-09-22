@@ -166,8 +166,15 @@ echo <<<HTML
 		<style>
 			{$css_bundle}
 		</style>
+		<style>
+			@media (prefers-color-scheme:dark) {
+				body {
+					background-color: black;
+				}
+			}
+		</style>
 	</head>
-	<body style="background-color: black;">
+	<body>
 		{$scripts_before_bundle}
 		{$heading_display_large_html}
 		{$heading_display_medium_html}
