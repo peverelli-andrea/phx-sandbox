@@ -1,0 +1,24 @@
+{
+	"sources": [
+		{
+			"source": "roboto/Roboto-Italic.ttf",
+			"format": "truetype"
+		}
+	],
+	"name": "HeadlineMediumItalic",
+	"family": "headline-medium-italic",
+	"style": "italic",
+	"size": "28px",
+	"weight": "400",
+	"letter_spacing": "0px",
+	"line_height": "36px",
+	"vf_weight": "400",
+	"grade": "1",
+	"width": "100%",
+	"rounding": "0",
+	"optical_size": "28",
+	"cursive": "0",
+	"slant": "0deg",
+	"fill": "0",
+	"hyper_expansion": "0"
+}

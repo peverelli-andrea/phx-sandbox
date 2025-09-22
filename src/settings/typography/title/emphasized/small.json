@@ -1,0 +1,24 @@
+{
+	"sources": [
+		{
+			"source": "roboto/Roboto-Medium.ttf",
+			"format": "truetype"
+		}
+	],
+	"name": "TitleSmallEmphasized",
+	"family": "title-small-emphasized",
+	"style": "normal",
+	"size": "14px",
+	"weight": "700",
+	"letter_spacing": "0.00714285714px",
+	"line_height": "20px",
+	"vf_weight": "700",
+	"grade": "1",
+	"width": "100%",
+	"rounding": "0",
+	"optical_size": "14",
+	"cursive": "0",
+	"slant": "0deg",
+	"fill": "0",
+	"hyper_expansion": "0"
+}

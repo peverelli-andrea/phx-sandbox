@@ -1,0 +1,24 @@
+{
+	"sources": [
+		{
+			"source": "roboto/Roboto-Regular.ttf",
+			"format": "truetype"
+		}
+	],
+	"name": "DisplayMediumEmphasized",
+	"family": "display-medium-emphasized",
+	"style": "normal",
+	"size": "45px",
+	"weight": "500",
+	"letter_spacing": "0px",
+	"line_height": "52px",
+	"vf_weight": "500",
+	"grade": "1",
+	"width": "100%",
+	"rounding": "0",
+	"optical_size": "45",
+	"cursive": "0",
+	"slant": "0deg",
+	"fill": "0",
+	"hyper_expansion": "0"
+}

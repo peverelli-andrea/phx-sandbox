@@ -1,0 +1,24 @@
+{
+	"sources": [
+		{
+			"source": "roboto/Roboto-Medium.ttf",
+			"format": "truetype"
+		}
+	],
+	"name": "LabelSmall",
+	"family": "label-small",
+	"style": "normal",
+	"size": "11px",
+	"weight": "500",
+	"letter_spacing": "0.04545454545px",
+	"line_height": "16px",
+	"vf_weight": "500",
+	"grade": "0",
+	"width": "100%",
+	"rounding": "0",
+	"optical_size": "11",
+	"cursive": "0",
+	"slant": "0deg",
+	"fill": "0",
+	"hyper_expansion": "0"
+}
