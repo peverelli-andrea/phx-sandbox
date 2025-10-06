@@ -204,9 +204,9 @@ echo <<<HTML
 		{$label_medium_html}
 		<br />
 		{$label_small_html}
+		{$scripts_after_bundle}
 		<br />
 		{$icon_arrow_back_html}
-		{$scripts_after_bundle}
 	</body>
 </html>
 HTML;
