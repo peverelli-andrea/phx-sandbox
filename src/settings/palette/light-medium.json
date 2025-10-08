@@ -6,5 +6,6 @@
 	"secondary": "#4A4458",
 	"on_secondary": "#FFFFFF",
 	"tertiary": "#633B48",
-	"on_tertiary": "#FFFFFF"
+	"on_tertiary": "#FFFFFF",
+	"surface_container_low": "#F7F2FA"
 }
