@@ -12,18 +12,54 @@ use Phx\Atom\Label\LabelProps;
 use Phx\Atom\Heading\Heading;
 use Phx\Atom\Heading\HeadingProps;
 use Phx\Atom\Heading\HeadingLevel;
-use Phx\Atom\Heading\HeadingTypographyRole;
+use Phx\Core\TypographyRole;
 use Phx\Core\TypographySubRole;
 use Phx\Atom\Icon\Icon;
 use Phx\Atom\Icon\IconProps;
 use Phx\Atom\Icon\IconVariant;
+use Phx\Molecule\FilledButton\FilledButton;
+use Phx\Molecule\FilledButton\FilledButtonProps;
+use Phx\Core\Page;
 
-$heading_display_large_render = Heading::render(
-	props: new HeadingProps(content: "Heading H1 Display Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>"),
-);
-$heading_display_large_html = Bundler::getHtml(render: $heading_display_large_render);
+final class index extends Page
+{
+	final public function __construct() {}
 
-$heading_display_medium_render = Heading::render(
+	final public function render(): string
+	{
+		$heading_display_large = $this->registerComponent(
+			id: "heading_display_large",
+			render: (new Heading())->render(props: new HeadingProps(
+				content: "Heading H1 Display Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+			)),
+		);
+
+		return $this->makeRender(
+			head: function(string $css): string
+			{
+				return <<<HTML
+				<style>
+					$css
+				</style>
+				<style>
+					@media (prefers-color-scheme: dark) {
+						body {
+							background-color: black;
+						}
+					}
+				</style>
+				HTML;
+			},
+			body: <<<HTML
+			$heading_display_large
+			HTML,
+		);
+	}
+}
+
+echo (new index())->render();
+/*
+	$heading_display_medium_render = Heading::render(
 	props: new HeadingProps(
 		content: "Heading H1 Display Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
 		sub_role: TypographySubRole::MEDIUM,
@@ -42,7 +78,7 @@ $heading_display_small_html = Bundler::getHtml(render: $heading_display_small_re
 $heading_headline_large_render = Heading::render(
 	props: new HeadingProps(
 		content: "Heading H1 Headline Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: HeadingTypographyRole::HEADLINE,
+		role: TypographyRole::HEADLINE,
 	),
 );
 $heading_headline_large_html = Bundler::getHtml(render: $heading_headline_large_render);
@@ -50,7 +86,7 @@ $heading_headline_large_html = Bundler::getHtml(render: $heading_headline_large_
 $heading_headline_medium_render = Heading::render(
 	props: new HeadingProps(
 		content: "Heading H2 Headline Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: HeadingTypographyRole::HEADLINE,
+		role: TypographyRole::HEADLINE,
 		sub_role: TypographySubRole::MEDIUM,
 		level: HeadingLevel::H2,
 	),
@@ -60,7 +96,7 @@ $heading_headline_medium_html = Bundler::getHtml(render: $heading_headline_mediu
 $heading_headline_small_render = Heading::render(
 	props: new HeadingProps(
 		content: "Heading H3 Headline Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: HeadingTypographyRole::HEADLINE,
+		role: TypographyRole::HEADLINE,
 		sub_role: TypographySubRole::SMALL,
 		level: HeadingLevel::H3,
 	),
@@ -70,7 +106,7 @@ $heading_headline_small_html = Bundler::getHtml(render: $heading_headline_small_
 $heading_title_large_render = Heading::render(
 	props: new HeadingProps(
 		content: "Heading H4 Title Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: HeadingTypographyRole::TITLE,
+		role: TypographyRole::TITLE,
 		level: HeadingLevel::H4,
 	),
 );
@@ -79,7 +115,7 @@ $heading_title_large_html = Bundler::getHtml(render: $heading_title_large_render
 $heading_title_medium_render = Heading::render(
 	props: new HeadingProps(
 		content: "Heading H5 Title Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: HeadingTypographyRole::TITLE,
+		role: TypographyRole::TITLE,
 		sub_role: TypographySubRole::MEDIUM,
 		level: HeadingLevel::H5,
 	),
@@ -89,7 +125,7 @@ $heading_title_medium_html = Bundler::getHtml(render: $heading_title_medium_rend
 $heading_title_small_render = Heading::render(
 	props: new HeadingProps(
 		content: "Heading H6 Title Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: HeadingTypographyRole::TITLE,
+		role: TypographyRole::TITLE,
 		sub_role: TypographySubRole::SMALL,
 		level: HeadingLevel::H6,
 	),
@@ -145,6 +181,14 @@ $icon_arrow_back_render = Icon::render(
 );
 $icon_arrow_back_html = Bundler::getHtml(render: $icon_arrow_back_render);
 
+$filled_button_render = (new FilledButton())->render(
+	props: new FilledButtonProps(
+		label: "Elevated Button",
+		icon: IconVariant::ARROW_BACK,
+	),
+);
+$filled_button_html = Bundler::getHtml(render: $filled_button_render);
+
 $bundle = Bundler::make(
 	component_renders: [
 		$heading_display_large_render,
@@ -163,6 +207,7 @@ $bundle = Bundler::make(
 		$label_medium_render,
 		$label_small_render,
 		$icon_arrow_back_render,
+		$filled_button_render,
 	]
 );
 
@@ -178,7 +223,7 @@ echo <<<HTML
 			{$css_bundle}
 		</style>
 		<style>
-			@media (prefers-color-scheme:dark) {
+			@media (prefers-color-scheme: dark) {
 				body {
 					background-color: black;
 				}
@@ -207,6 +252,9 @@ echo <<<HTML
 		{$scripts_after_bundle}
 		<br />
 		{$icon_arrow_back_html}
+		<br />
+		{$filled_button_html}
 	</body>
 </html>
 HTML;
+*/
