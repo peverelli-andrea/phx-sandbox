@@ -29,12 +29,13 @@ final class index extends Page
 	{
 		// HEADINGS
 
-		$heading_display_large = $this->registerComponent(
-			render: (new Heading())->render(props: new HeadingProps(
-				content: "Heading H1 Display Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-			)),
+		$heading_display_large = $this->newComponent(
+			component: Heading::class,
+			props: [
+				"content" => "Heading H1 Display Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+			],
 		);
-
+/*
 		$heading_display_medium = $this->registerComponent(
 			render: (new Heading())->render(props: new HeadingProps(
 				content: "Heading H1 Display Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
@@ -99,7 +100,7 @@ final class index extends Page
 				level: HeadingLevel::H6,
 			)),
 		);
-
+*/
 
 		return $this->makeRender(
 			head: function(string $css): string
@@ -119,14 +120,6 @@ final class index extends Page
 			},
 			body: <<<HTML
 			$heading_display_large
-			$heading_display_medium
-			$heading_display_small
-			$heading_headline_large
-			$heading_headline_medium
-			$heading_headline_small
-			$heading_title_large
-			$heading_title_medium
-			$heading_title_small
 			HTML,
 		);
 	}
