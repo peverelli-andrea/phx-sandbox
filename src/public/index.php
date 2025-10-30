@@ -27,12 +27,79 @@ final class index extends Page
 
 	final public function render(): string
 	{
+		// HEADINGS
+
 		$heading_display_large = $this->registerComponent(
-			id: "heading_display_large",
 			render: (new Heading())->render(props: new HeadingProps(
 				content: "Heading H1 Display Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
 			)),
 		);
+
+		$heading_display_medium = $this->registerComponent(
+			render: (new Heading())->render(props: new HeadingProps(
+				content: "Heading H1 Display Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				sub_role: TypographySubRole::MEDIUM,
+			)),
+		);
+
+		$heading_display_small = $this->registerComponent(
+			render: (new Heading())->render(props: new HeadingProps(
+				content: "Heading H1 Display Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				sub_role: TypographySubRole::SMALL,
+			)),
+		);
+
+		$heading_headline_large = $this->registerComponent(
+			render: (new Heading())->render(props: new HeadingProps(
+				content: "Heading H1 Headline Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				role: TypographyRole::HEADLINE,
+			)),
+		);
+
+		$heading_headline_medium = $this->registerComponent(
+			render: (new Heading())->render(props: new HeadingProps(
+				content: "Heading H2 Headline Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				role: TypographyRole::HEADLINE,
+				sub_role: TypographySubRole::MEDIUM,
+				level: HeadingLevel::H2,
+			)),
+		);
+
+		$heading_headline_small = $this->registerComponent(
+			render: (new Heading())->render(props: new HeadingProps(
+				content: "Heading H3 Headline Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				role: TypographyRole::HEADLINE,
+				sub_role: TypographySubRole::SMALL,
+				level: HeadingLevel::H3,
+			)),
+		);
+
+		$heading_title_large = $this->registerComponent(
+			render: (new Heading())->render(props: new HeadingProps(
+				content: "Heading H4 Title Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				role: TypographyRole::TITLE,
+				level: HeadingLevel::H4,
+			)),
+		);
+
+		$heading_title_medium = $this->registerComponent(
+			render: (new Heading())->render(props: new HeadingProps(
+				content: "Heading H5 Title Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				role: TypographyRole::TITLE,
+				sub_role: TypographySubRole::MEDIUM,
+				level: HeadingLevel::H5,
+			)),
+		);
+
+		$heading_title_small = $this->registerComponent(
+			render: (new Heading())->render(props: new HeadingProps(
+				content: "Heading H6 Title Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				role: TypographyRole::TITLE,
+				sub_role: TypographySubRole::SMALL,
+				level: HeadingLevel::H6,
+			)),
+		);
+
 
 		return $this->makeRender(
 			head: function(string $css): string
@@ -52,6 +119,14 @@ final class index extends Page
 			},
 			body: <<<HTML
 			$heading_display_large
+			$heading_display_medium
+			$heading_display_small
+			$heading_headline_large
+			$heading_headline_medium
+			$heading_headline_small
+			$heading_title_large
+			$heading_title_medium
+			$heading_title_small
 			HTML,
 		);
 	}
@@ -59,79 +134,6 @@ final class index extends Page
 
 echo (new index())->render();
 /*
-	$heading_display_medium_render = Heading::render(
-	props: new HeadingProps(
-		content: "Heading H1 Display Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		sub_role: TypographySubRole::MEDIUM,
-	),
-);
-$heading_display_medium_html = Bundler::getHtml(render: $heading_display_medium_render);
-
-$heading_display_small_render = Heading::render(
-	props: new HeadingProps(
-		content: "Heading H1 Display Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		sub_role: TypographySubRole::SMALL,
-	),
-);
-$heading_display_small_html = Bundler::getHtml(render: $heading_display_small_render);
-
-$heading_headline_large_render = Heading::render(
-	props: new HeadingProps(
-		content: "Heading H1 Headline Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: TypographyRole::HEADLINE,
-	),
-);
-$heading_headline_large_html = Bundler::getHtml(render: $heading_headline_large_render);
-
-$heading_headline_medium_render = Heading::render(
-	props: new HeadingProps(
-		content: "Heading H2 Headline Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: TypographyRole::HEADLINE,
-		sub_role: TypographySubRole::MEDIUM,
-		level: HeadingLevel::H2,
-	),
-);
-$heading_headline_medium_html = Bundler::getHtml(render: $heading_headline_medium_render);
-
-$heading_headline_small_render = Heading::render(
-	props: new HeadingProps(
-		content: "Heading H3 Headline Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: TypographyRole::HEADLINE,
-		sub_role: TypographySubRole::SMALL,
-		level: HeadingLevel::H3,
-	),
-);
-$heading_headline_small_html = Bundler::getHtml(render: $heading_headline_small_render);
-
-$heading_title_large_render = Heading::render(
-	props: new HeadingProps(
-		content: "Heading H4 Title Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: TypographyRole::TITLE,
-		level: HeadingLevel::H4,
-	),
-);
-$heading_title_large_html = Bundler::getHtml(render: $heading_title_large_render);
-
-$heading_title_medium_render = Heading::render(
-	props: new HeadingProps(
-		content: "Heading H5 Title Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: TypographyRole::TITLE,
-		sub_role: TypographySubRole::MEDIUM,
-		level: HeadingLevel::H5,
-	),
-);
-$heading_title_medium_html = Bundler::getHtml(render: $heading_title_medium_render);
-
-$heading_title_small_render = Heading::render(
-	props: new HeadingProps(
-		content: "Heading H6 Title Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		role: TypographyRole::TITLE,
-		sub_role: TypographySubRole::SMALL,
-		level: HeadingLevel::H6,
-	),
-);
-$heading_title_small_html = Bundler::getHtml(render: $heading_title_small_render);
-
 $paragraph_large_render = Paragraph::render(
 	props: new ParagraphProps(content: "Paragraph Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>"),
 );
