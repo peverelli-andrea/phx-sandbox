@@ -109,6 +109,75 @@ final class index extends Page
 			],
 		);
 
+		// PARAGRAPHS
+
+		$paragraph_large = $this->newComponent(
+			component: Paragraph::class,
+			props: [
+				"content" => "Paragraph Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+			],
+		);
+
+		$paragraph_medium = $this->newComponent(
+			component: Paragraph::class,
+			props: [
+				"content" => "Paragraph Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				"sub_role" => TypographySubRole::MEDIUM,
+			],
+		);
+
+		$paragraph_small = $this->newComponent(
+			component: Paragraph::class,
+			props: [
+				"content" => "Paragraph Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				"sub_role" => TypographySubRole::SMALL,
+			],
+		);
+
+		// LABELS
+
+		$label_large = $this->newComponent(
+			component: Label::class,
+			props: [
+				"content" => "Label Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+			],
+		);
+
+		$label_medium = $this->newComponent(
+			component: Label::class,
+			props: [
+				"content" => "Label Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				"sub_role" => TypographySubRole::MEDIUM,
+			],
+		);
+
+		$label_small = $this->newComponent(
+			component: Label::class,
+			props: [
+				"content" => "Label Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
+				"sub_role" => TypographySubRole::SMALL,
+			],
+		);
+
+		// ICONS
+
+		$icon_arrow_back = $this->newComponent(
+			component: Icon::class,
+			props: [
+				"variant" => IconVariant::ARROW_BACK,
+			],
+		);
+
+		// FILLED BUTTONS
+/*
+		$filled_button = $this->newComponent(
+			component: FilledButton::class,
+			props: [
+				"label" => "Elevated Button",
+				"icon" => IconVariant::ARROW_BACK,
+			],
+		);
+*/
 		return $this->makeRender(
 			head: function(string $css): string
 			{
@@ -135,136 +204,19 @@ final class index extends Page
 			$heading_title_large
 			$heading_title_medium
 			$heading_title_small
+			$paragraph_large
+			$paragraph_medium
+			$paragraph_small
+			$label_large
+			<br />
+			$label_medium
+			<br />
+			$label_small
+			<br />
+			$icon_arrow_back
 			HTML,
 		);
 	}
 }
 
 echo (new index())->render();
-/*
-$paragraph_large_render = Paragraph::render(
-	props: new ParagraphProps(content: "Paragraph Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>"),
-);
-$paragraph_large_html = Bundler::getHtml(render: $paragraph_large_render);
-
-$paragraph_medium_render = Paragraph::render(
-	props: new ParagraphProps(
-		content: "Paragraph Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		sub_role: TypographySubRole::MEDIUM,
-	),
-);
-$paragraph_medium_html = Bundler::getHtml(render: $paragraph_medium_render);
-
-$paragraph_small_render = Paragraph::render(
-	props: new ParagraphProps(
-		content: "Paragraph Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		sub_role: TypographySubRole::SMALL,
-	),
-);
-$paragraph_small_html = Bundler::getHtml(render: $paragraph_small_render);
-
-$label_large_render = Label::render(
-	props: new LabelProps(content: "Label Large <i>italic</i> <b>emphasized <i>emphasized italic</i></b>"),
-);
-$label_large_html = Bundler::getHtml(render: $label_large_render);
-
-$label_medium_render = Label::render(
-	props: new LabelProps(
-		content: "Label Medium <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		sub_role: TypographySubRole::MEDIUM,
-	),
-);
-$label_medium_html = Bundler::getHtml(render: $label_medium_render);
-
-$label_small_render = Label::render(
-	props: new LabelProps(
-		content: "Label Small <i>italic</i> <b>emphasized <i>emphasized italic</i></b>",
-		sub_role: TypographySubRole::SMALL,
-	),
-);
-$label_small_html = Bundler::getHtml(render: $label_small_render);
-
-$icon_arrow_back_render = Icon::render(
-	props: new IconProps(
-		variant: IconVariant::ARROW_BACK,
-	),
-);
-$icon_arrow_back_html = Bundler::getHtml(render: $icon_arrow_back_render);
-
-$filled_button_render = (new FilledButton())->render(
-	props: new FilledButtonProps(
-		label: "Elevated Button",
-		icon: IconVariant::ARROW_BACK,
-	),
-);
-$filled_button_html = Bundler::getHtml(render: $filled_button_render);
-
-$bundle = Bundler::make(
-	component_renders: [
-		$heading_display_large_render,
-		$heading_display_medium_render,
-		$heading_display_small_render,
-		$heading_headline_large_render,
-		$heading_headline_medium_render,
-		$heading_headline_small_render,
-		$heading_title_large_render,
-		$heading_title_medium_render,
-		$heading_title_small_render,
-		$paragraph_large_render,
-		$paragraph_medium_render,
-		$paragraph_small_render,
-		$label_large_render,
-		$label_medium_render,
-		$label_small_render,
-		$icon_arrow_back_render,
-		$filled_button_render,
-	]
-);
-
-$css_bundle = Bundler::getCss(bundle: $bundle);
-$scripts_before_bundle = Bundler::getScriptsBefore(bundle: $bundle);
-$scripts_after_bundle = Bundler::getScriptsAfter(bundle: $bundle);
-
-echo <<<HTML
-<!DOCTYPE html>
-<html>
-	<head>
-		<style>
-			{$css_bundle}
-		</style>
-		<style>
-			@media (prefers-color-scheme: dark) {
-				body {
-					background-color: black;
-				}
-			}
-		</style>
-	</head>
-	<body>
-		{$scripts_before_bundle}
-		{$heading_display_large_html}
-		{$heading_display_medium_html}
-		{$heading_display_small_html}
-		{$heading_headline_large_html}
-		{$heading_headline_medium_html}
-		{$heading_headline_small_html}
-		{$heading_title_large_html}
-		{$heading_title_medium_html}
-		{$heading_title_small_html}
-		{$paragraph_large_html}
-		{$paragraph_medium_html}
-		{$paragraph_small_html}
-		{$label_large_html}
-		<br />
-		{$label_medium_html}
-		<br />
-		{$label_small_html}
-		{$scripts_after_bundle}
-		<br />
-		{$icon_arrow_back_html}
-		<br />
-		{$filled_button_html}
-	</body>
-</html>
-HTML;
-*/
