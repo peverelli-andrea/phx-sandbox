@@ -169,15 +169,15 @@ final class index extends Page
 		);
 
 		// FILLED BUTTONS
-/*
-		$filled_button = $this->newComponent(
+
+		$filled_button_elevated = $this->newComponent(
 			component: FilledButton::class,
 			props: [
 				"label" => "Elevated Button",
 				"icon" => IconVariant::ARROW_BACK,
 			],
 		);
-*/
+
 		return $this->makeRender(
 			head: function(string $css): string
 			{
@@ -214,6 +214,12 @@ final class index extends Page
 			$label_small
 			<br />
 			$icon_arrow_back
+			<br />
+			<div style="width:256px">
+				$filled_button_elevated
+			</div>
+			<br />
+			<br />
 			HTML,
 		);
 	}
