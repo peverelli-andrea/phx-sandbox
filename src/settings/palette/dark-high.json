@@ -7,5 +7,7 @@
 	"on_secondary": "#000000",
 	"tertiary": "#FFECF1",
 	"on_tertiary": "#000000",
-	"surface_container_low": "#1D1B20"
+	"surface_container_low": "#1D1B20",
+	"key_shadow": "#0000001E",
+	"ambient_shadow": "#0000000F"
 }
