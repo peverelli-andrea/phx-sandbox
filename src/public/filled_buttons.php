@@ -4,14 +4,24 @@ namespace Phx\Sandbox\public;
 
 require_once("../../vendor/autoload.php");
 
+use Phx\Atom\Icon\IconVariant;
+use Phx\Molecule\FilledButton\FilledButton;
 use Phx\Core\Page;
 
-final class index extends Page
+final class filled_buttons extends Page
 {
 	final public function __construct() {}
 
 	final public function render(): string
 	{
+		$filled_button_elevated = $this->newComponent(
+			component: FilledButton::class,
+			props: [
+				"label" => "Elevated Button",
+				"icon" => IconVariant::ARROW_BACK,
+			],
+		);
+
 		return $this->makeRender(
 			head: function(string $css): string
 			{
@@ -33,18 +43,15 @@ final class index extends Page
 				HTML;
 			},
 			body: <<<HTML
-			<a href="/headings.php">HEADINGS</a>
+			<a href="index.php">BACK</a>
 			<br />
-			<a href="/paragraphs.php">PARAGRAPHS</a>
 			<br />
-			<a href="/labels.php">LABELS</a>
-			<br />
-			<a href="/icons.php">ICONS</a>
-			<br />
-			<a href="/filled_buttons.php">FILLED BUTTONS</a>
+			<div style="width:256px">
+				$filled_button_elevated
+			</div>
 			HTML,
 		);
 	}
 }
 
-echo (new index())->render();
+echo (new filled_buttons())->render();

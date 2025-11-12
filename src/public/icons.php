@@ -4,14 +4,23 @@ namespace Phx\Sandbox\public;
 
 require_once("../../vendor/autoload.php");
 
+use Phx\Atom\Icon\Icon;
+use Phx\Atom\Icon\IconVariant;
 use Phx\Core\Page;
 
-final class index extends Page
+final class icons extends Page
 {
 	final public function __construct() {}
 
 	final public function render(): string
 	{
+		$icon_arrow_back = $this->newComponent(
+			component: Icon::class,
+			props: [
+				"variant" => IconVariant::ARROW_BACK,
+			],
+		);
+
 		return $this->makeRender(
 			head: function(string $css): string
 			{
@@ -33,18 +42,13 @@ final class index extends Page
 				HTML;
 			},
 			body: <<<HTML
-			<a href="/headings.php">HEADINGS</a>
+			<a href="/index.php">BACK</a>
 			<br />
-			<a href="/paragraphs.php">PARAGRAPHS</a>
 			<br />
-			<a href="/labels.php">LABELS</a>
-			<br />
-			<a href="/icons.php">ICONS</a>
-			<br />
-			<a href="/filled_buttons.php">FILLED BUTTONS</a>
+			$icon_arrow_back
 			HTML,
 		);
 	}
 }
 
-echo (new index())->render();
+echo (new icons())->render();
