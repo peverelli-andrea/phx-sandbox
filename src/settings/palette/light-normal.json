@@ -15,6 +15,7 @@
 	"on_secondary_container": "#4A4458",
 	"tertiary": "#7D5260",
 	"on_tertiary": "#FFFFFF",
+	"outline_variant": "#CAC4D0",
 	"key_shadow": "#0000001E",
 	"ambient_shadow": "#0000000F"
 }
